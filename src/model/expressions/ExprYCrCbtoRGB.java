@@ -20,8 +20,8 @@ public class ExprYCrCbtoRGB extends Expression {
         myOperand1 = operand1;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor eval = myOperand1.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor eval = myOperand1.evaluate(x, y, currentTime);
         return new RGBColor(
                 eval.getRed() + eval.getBlue() *  1.4022,
                 eval.getRed() + eval.getGreen() * -0.3456 + eval.getBlue() * -0.7145,

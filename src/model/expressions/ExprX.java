@@ -14,7 +14,7 @@ public class ExprX extends Expression {
         super(Pattern.compile("x"));
     }
 
-    public RGBColor evaluate(double x, double y) {
+    public RGBColor evaluate(double x, double y, double currentTime) {
         return new RGBColor((double) x);
     }
 

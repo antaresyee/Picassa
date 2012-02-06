@@ -19,8 +19,8 @@ public class ExprCeil extends Expression {
         myOperand1 = operand1;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor eval = myOperand1.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor eval = myOperand1.evaluate(x, y, currentTime);
         return new RGBColor(ceilDouble(eval.getRed()),
                 ceilDouble(eval.getBlue()), ceilDouble(eval.getGreen()));
     }

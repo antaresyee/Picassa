@@ -17,8 +17,8 @@ public class ExprTemp extends Expression {
         myUserExpression = userExpression;
     }
     
-    public RGBColor evaluate(double x, double y) {
-        return myUserExpression.evaluate(x,y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        return myUserExpression.evaluate(x,y, currentTime);
     }
 
     public Expression parseExpression(ParserState ps) {

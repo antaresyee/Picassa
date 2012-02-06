@@ -22,9 +22,9 @@ public class ExprPerlinBW extends Expression {
         myOperand2 = operand2;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor left = myOperand1.evaluate(x, y);
-        RGBColor right = myOperand2.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor left = myOperand1.evaluate(x, y, currentTime);
+        RGBColor right = myOperand2.evaluate(x, y, currentTime);
         return greyNoise(left, right);
     }
 

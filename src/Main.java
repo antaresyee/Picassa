@@ -1,6 +1,7 @@
 import java.awt.Dimension;
+
 import model.Model;
-import view.Frame;
+import view.AnimatedFrame;
 
 
 /**
@@ -16,7 +17,7 @@ public class Main
     public static void main (String[] args)
     {
         Model model = new Model();
-        Frame view = new Frame(TITLE, SIZE);
+        AnimatedFrame view = new AnimatedFrame(TITLE, SIZE);
         view.setModel(model);
         view.setVisible(true);
     }

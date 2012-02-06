@@ -19,7 +19,7 @@ public class ExprLet extends Expression {
     /**
      * This method is a "refused bequest."
      */
-    public RGBColor evaluate(double x, double y) {
+    public RGBColor evaluate(double x, double y, double currentTime) {
         throw new ParserException("Called evaluate on an ExprLet instance. Not allowed.");
     }
 

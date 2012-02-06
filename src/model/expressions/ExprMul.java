@@ -12,18 +12,18 @@ public class ExprMul extends Expression {
     Expression myOperand2;
 
     public ExprMul() {
-        super(Pattern.compile("\\((mul)"));
+        super(Pattern.compile("\\((\\*)|\\((mul)"));
     }
 
     public ExprMul(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((mul)"));
+        super(Pattern.compile("\\((\\*)|\\((mul)"));
         myOperand1 = operand1;
         myOperand2 = operand2;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor left = myOperand1.evaluate(x, y);
-        RGBColor right = myOperand2.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor left = myOperand1.evaluate(x, y, currentTime);
+        RGBColor right = myOperand2.evaluate(x, y, currentTime);
         return new RGBColor(left.getRed() * right.getRed(), left.getGreen()
                 * right.getGreen(), left.getBlue() * right.getBlue());
     }

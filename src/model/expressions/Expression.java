@@ -32,7 +32,7 @@ public abstract class Expression {
     /**
      * Returns value of expression
      */
-    public abstract RGBColor evaluate(double x, double y);
+    public abstract RGBColor evaluate(double x, double y, double currentTime);
 
     /**
      * Returns true if expression is an expression of a certain subclass.

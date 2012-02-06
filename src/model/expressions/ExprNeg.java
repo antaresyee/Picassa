@@ -11,16 +11,16 @@ public class ExprNeg extends Expression {
     Expression myOperand1;
 
     public ExprNeg() {
-        super(Pattern.compile("\\((neg)"));
+        super(Pattern.compile("\\((!)|\\((neg)"));
     }
 
     public ExprNeg(Expression operand1) {
-        super(Pattern.compile("\\((neg)"));
+        super(Pattern.compile("\\((!)|\\((neg)"));
         myOperand1 = operand1;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor left = myOperand1.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor left = myOperand1.evaluate(x, y, currentTime);
         return new RGBColor(-left.getRed(), -left.getGreen(), -left.getBlue());
     }
 

@@ -20,8 +20,8 @@ public class ExprTan extends Expression {
         myOperand1 = operand1;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor eval = myOperand1.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor eval = myOperand1.evaluate(x, y, currentTime);
         return new RGBColor(Math.tan(eval.getRed()),
                 Math.tan((eval.getBlue())), Math.tan((eval.getGreen())));
     }

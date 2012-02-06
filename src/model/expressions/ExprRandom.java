@@ -14,7 +14,7 @@ public class ExprRandom extends Expression {
         super(Pattern.compile("\\((random)"));
     }
 
-    public RGBColor evaluate(double x, double y) {
+    public RGBColor evaluate(double x, double y, double currentTime) {
         return new RGBColor(generateRandom(), generateRandom(),
                 generateRandom());
     }

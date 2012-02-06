@@ -1,11 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import model.expressions.ExprAbs;
 import model.expressions.ExprAtan;
+import model.expressions.ExprAvg;
 import model.expressions.ExprCeil;
 import model.expressions.ExprClamp;
 import model.expressions.ExprCol;
@@ -13,8 +12,11 @@ import model.expressions.ExprCos;
 import model.expressions.ExprDiv;
 import model.expressions.ExprExp;
 import model.expressions.ExprFloor;
+import model.expressions.ExprIf;
 import model.expressions.ExprLet;
 import model.expressions.ExprLog;
+import model.expressions.ExprMax;
+import model.expressions.ExprMin;
 import model.expressions.ExprMinus;
 import model.expressions.ExprMod;
 import model.expressions.ExprMul;
@@ -23,9 +25,12 @@ import model.expressions.ExprNum;
 import model.expressions.ExprPerlinBW;
 import model.expressions.ExprPerlinColor;
 import model.expressions.ExprPlus;
+import model.expressions.ExprProd;
 import model.expressions.ExprRandom;
 import model.expressions.ExprRgbToYCrCb;
 import model.expressions.ExprSin;
+import model.expressions.ExprSum;
+import model.expressions.ExprT;
 import model.expressions.ExprTan;
 import model.expressions.ExprTemp;
 import model.expressions.ExprWrap;
@@ -125,6 +130,13 @@ public class Parser {
         allExpressions.add(new ExprPerlinColor());
         allExpressions.add(new ExprPerlinBW());
         allExpressions.add(new ExprLet());
+        allExpressions.add(new ExprSum());
+        allExpressions.add(new ExprProd());
+        allExpressions.add(new ExprAvg());
+        allExpressions.add(new ExprMin());
+        allExpressions.add(new ExprMax());
+        allExpressions.add(new ExprIf());
+        allExpressions.add(new ExprT());
     }
 
     public void addExpr(ExprTemp et) {

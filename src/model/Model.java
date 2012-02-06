@@ -12,6 +12,29 @@ import model.expressions.Expression;
 public class Model {
     public static final double DOMAIN_MIN = -1;
     public static final double DOMAIN_MAX = 1;
+    public static final int NUM_FRAMES = 50;
+    
+    private double myCurrentTime = 0;
+    
+    public double getCurrentTime() {
+        return myCurrentTime;
+    }
+    
+    /**
+     * Advance to the next frame in the animation.
+     */
+    public void reset ()
+    {
+        myCurrentTime = 0;
+    }
+
+    /**
+     * Advance to the next frame in the animation.
+     */
+    public void nextFrame ()
+    {
+        myCurrentTime += 1.0 / NUM_FRAMES;
+    }
 
     /**
      * Evaluate an expression for each point in the image.
@@ -25,9 +48,8 @@ public class Model {
             double evalY = imageToDomainScale(imageY, size.height);
             for (int imageX = 0; imageX < size.width; imageX++) {
                 double evalX = imageToDomainScale(imageX, size.width);
-                result.setColor(imageX, imageY, toEval.evaluate(evalX, evalY)
+                result.setColor(imageX, imageY, toEval.evaluate(evalX, evalY,myCurrentTime)
                         .toJavaColor());
-                // TODO: try passing evaluate(x,y) to expression.evaluate()
             }
         }
         return result;

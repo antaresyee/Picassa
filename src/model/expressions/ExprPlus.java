@@ -13,18 +13,18 @@ public class ExprPlus extends Expression {
     Expression myOperand2;
 
     public ExprPlus() {
-        super(Pattern.compile("\\((plus)"));
+        super(Pattern.compile("\\((\\+)|\\((plus)"));
     }
 
     public ExprPlus(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((plus)"));
+        super(Pattern.compile("\\((\\+)|\\((plus)"));
         myOperand1 = operand1;
         myOperand2 = operand2;
     }
 
-    public RGBColor evaluate(double x, double y) {
-        RGBColor left = myOperand1.evaluate(x, y);
-        RGBColor right = myOperand2.evaluate(x, y);
+    public RGBColor evaluate(double x, double y, double currentTime) {
+        RGBColor left = myOperand1.evaluate(x, y, currentTime);
+        RGBColor right = myOperand2.evaluate(x, y, currentTime);
         return new RGBColor(left.getRed() + right.getRed(), left.getGreen()
                 + right.getGreen(), left.getBlue() + right.getBlue());
     }
