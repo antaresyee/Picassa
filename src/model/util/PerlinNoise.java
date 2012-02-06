@@ -1,8 +1,5 @@
 package model.util;
 
-import model.RGBColor;
-
-
 /**
  * Combine two colors by using their components to seed noise function.
  * 

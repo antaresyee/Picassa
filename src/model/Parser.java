@@ -45,8 +45,7 @@ import model.expressions.Expression;
  * Due to the nature of the language being parsed, a recursive descent parser is
  * used http://en.wikipedia.org/wiki/Recursive_descent_parser
  * 
- * @author former student solution
- * @author Robert C. Duvall (added comments, exceptions, some functions)
+ * @author Robert C. Duvall, Antares Yee
  */
 public class Parser {
     static ArrayList<Expression> allExpressions;
@@ -90,12 +89,12 @@ public class Parser {
         public boolean notAtEndOfString() {
             return myCurrentPosition < myInput.length();
         }
-        
-        //TODO: GET THE FOLLOWING 2 METHODS TO WORK.
+
+        // TODO: GET THE FOLLOWING 2 METHODS TO WORK.
         public void setExprTemp(ExprTemp et) {
             myParser.addExpr(et);
         }
-        
+
         public void removeExpr(String commandName) {
             myParser.removeExpr(commandName);
         }
@@ -142,7 +141,7 @@ public class Parser {
     public void addExpr(ExprTemp et) {
         allExpressions.add(et);
     }
-    
+
     public void removeExpr(String commandName) {
         Expression toRemove = null;
         for (Expression e : allExpressions) {

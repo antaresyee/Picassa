@@ -16,8 +16,7 @@ import model.Parser.ParserState;
  * In this format, the internal nodes represent mathematical functions and the
  * leaves represent constant values.
  * 
- * @author former student solution
- * @author Robert C. Duvall (added comments, some code)
+ * @author Robert C. Duvall, Antares Yee
  */
 public abstract class Expression {
     public Pattern myRegexPattern;
@@ -42,7 +41,7 @@ public abstract class Expression {
                 ps.getCurrentPosition()));
         return expMatcher.lookingAt();
     }
-    
+
     public boolean isExpression(String commandName) {
         Matcher expMatcher = myRegexPattern.matcher(commandName);
         return expMatcher.lookingAt();

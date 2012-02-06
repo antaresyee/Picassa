@@ -2,8 +2,6 @@ package model.expressions;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
-import model.Parser;
 import model.RGBColor;
 import model.Parser.ParserState;
 import model.util.PerlinNoise;
@@ -37,18 +35,16 @@ public class ExprPerlinBW extends Expression {
      * Returns string representation of expression
      */
     public String toString() {
-        return "(perlinBW " + myOperand1.toString() + " " + myOperand2.toString()
-                + ")";
+        return "(perlinBW " + myOperand1.toString() + " "
+                + myOperand2.toString() + ")";
     }
-    
+
     /**
      * Use noise to produce a grey scale color.
      */
-    public static RGBColor greyNoise (RGBColor left, RGBColor right)
-    {
-       return new RGBColor(
-               PerlinNoise.noise(left.getRed() + right.getRed(),
-                                 left.getGreen() + right.getGreen(),
-                                 left.getBlue() + right.getBlue()));
+    public static RGBColor greyNoise(RGBColor left, RGBColor right) {
+        return new RGBColor(PerlinNoise.noise(left.getRed() + right.getRed(),
+                left.getGreen() + right.getGreen(),
+                left.getBlue() + right.getBlue()));
     }
 }

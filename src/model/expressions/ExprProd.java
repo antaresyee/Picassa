@@ -8,8 +8,8 @@ import model.Parser.ParserState;
 
 public class ExprProd extends Expression {
 
-ArrayList<Expression> myOperands;
-    
+    ArrayList<Expression> myOperands;
+
     public ExprProd() {
         super(Pattern.compile("\\((product)"));
     }
@@ -18,20 +18,20 @@ ArrayList<Expression> myOperands;
         super(Pattern.compile("\\((product)"));
         myOperands = operands;
     }
-    
+
     @Override
     public RGBColor evaluate(double x, double y, double currentTime) {
         Double r = 1.0;
         Double g = 1.0;
         Double b = 1.0;
-        
+
         for (Expression e : myOperands) {
-            RGBColor RGBc = e.evaluate(x,y, currentTime);
+            RGBColor RGBc = e.evaluate(x, y, currentTime);
             r *= RGBc.getRed();
             g *= RGBc.getGreen();
             b *= RGBc.getBlue();
-        }       
-        return new RGBColor(r,g,b);
+        }
+        return new RGBColor(r, g, b);
     }
 
     @Override

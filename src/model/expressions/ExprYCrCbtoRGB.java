@@ -2,8 +2,6 @@ package model.expressions;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
-import model.Parser;
 import model.RGBColor;
 import model.Parser.ParserState;
 
@@ -22,10 +20,9 @@ public class ExprYCrCbtoRGB extends Expression {
 
     public RGBColor evaluate(double x, double y, double currentTime) {
         RGBColor eval = myOperand1.evaluate(x, y, currentTime);
-        return new RGBColor(
-                eval.getRed() + eval.getBlue() *  1.4022,
-                eval.getRed() + eval.getGreen() * -0.3456 + eval.getBlue() * -0.7145,
-                eval.getRed() + eval.getGreen() *  1.7710);
+        return new RGBColor(eval.getRed() + eval.getBlue() * 1.4022,
+                eval.getRed() + eval.getGreen() * -0.3456 + eval.getBlue()
+                        * -0.7145, eval.getRed() + eval.getGreen() * 1.7710);
     }
 
     public Expression parseExpression(ParserState ps) {
@@ -36,6 +33,5 @@ public class ExprYCrCbtoRGB extends Expression {
     public String toString() {
         return "(yCrCbtoRGB " + myOperand1.toString() + ")";
     }
-
 
 }

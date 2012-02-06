@@ -26,8 +26,9 @@ public class ExprIf extends Expression {
         RGBColor o1 = myOperand1.evaluate(x, y, currentTime);
         RGBColor o2 = myOperand2.evaluate(x, y, currentTime);
         RGBColor o3 = myOperand3.evaluate(x, y, currentTime);
-        
-        if ((o1.getRed()+o1.getGreen()+o1.getBlue()) / 3.0 > 0) return o2;
+
+        if ((o1.getRed() + o1.getGreen() + o1.getBlue()) / 3.0 > 0)
+            return o2;
         return o3;
     }
 

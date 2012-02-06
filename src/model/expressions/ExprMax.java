@@ -8,8 +8,8 @@ import model.Parser.ParserState;
 
 public class ExprMax extends Expression {
 
-ArrayList<Expression> myOperands;
-    
+    ArrayList<Expression> myOperands;
+
     public ExprMax() {
         super(Pattern.compile("\\((max)"));
     }
@@ -18,20 +18,20 @@ ArrayList<Expression> myOperands;
         super(Pattern.compile("\\((max)"));
         myOperands = operands;
     }
-    
+
     @Override
     public RGBColor evaluate(double x, double y, double currentTime) {
         ArrayList<Double> r = new ArrayList<Double>();
         ArrayList<Double> g = new ArrayList<Double>();
         ArrayList<Double> b = new ArrayList<Double>();
-        
+
         for (Expression e : myOperands) {
-            RGBColor RGBc = e.evaluate(x,y, currentTime);
+            RGBColor RGBc = e.evaluate(x, y, currentTime);
             r.add(RGBc.getRed());
             g.add(RGBc.getGreen());
             b.add(RGBc.getBlue());
-        }       
-        return new RGBColor(maximum(r),maximum(g),maximum(b));
+        }
+        return new RGBColor(maximum(r), maximum(g), maximum(b));
     }
 
     @Override
@@ -42,14 +42,14 @@ ArrayList<Expression> myOperands;
 
     public Double maximum(ArrayList<Double> list) {
         Double maxD = list.get(0);
-        for (int i=1; i<list.size(); ++i) {
+        for (int i = 1; i < list.size(); ++i) {
             if (list.get(i) > maxD) {
                 maxD = list.get(i);
             }
         }
         return maxD;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

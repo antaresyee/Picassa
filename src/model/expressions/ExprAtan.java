@@ -2,8 +2,6 @@ package model.expressions;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
-import model.Parser;
 import model.RGBColor;
 import model.Parser.ParserState;
 

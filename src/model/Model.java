@@ -7,32 +7,30 @@ import model.expressions.Expression;
 /**
  * Evaluate an expression for each pixel in a image.
  * 
- * @author Robert C Duvall
+ * @author Robert C Duvall, Antares Yee
  */
 public class Model {
     public static final double DOMAIN_MIN = -1;
     public static final double DOMAIN_MAX = 1;
     public static final int NUM_FRAMES = 50;
-    
+
     private double myCurrentTime = 0;
-    
+
     public double getCurrentTime() {
         return myCurrentTime;
     }
-    
+
     /**
      * Advance to the next frame in the animation.
      */
-    public void reset ()
-    {
+    public void reset() {
         myCurrentTime = 0;
     }
 
     /**
      * Advance to the next frame in the animation.
      */
-    public void nextFrame ()
-    {
+    public void nextFrame() {
         myCurrentTime += 1.0 / NUM_FRAMES;
     }
 
@@ -48,8 +46,9 @@ public class Model {
             double evalY = imageToDomainScale(imageY, size.height);
             for (int imageX = 0; imageX < size.width; imageX++) {
                 double evalX = imageToDomainScale(imageX, size.width);
-                result.setColor(imageX, imageY, toEval.evaluate(evalX, evalY,myCurrentTime)
-                        .toJavaColor());
+                result.setColor(imageX, imageY,
+                        toEval.evaluate(evalX, evalY, myCurrentTime)
+                                .toJavaColor());
             }
         }
         return result;

@@ -8,7 +8,7 @@ import model.Parser.ParserState;
 
 public class ExprSum extends Expression {
     ArrayList<Expression> myOperands;
-    
+
     public ExprSum() {
         super(Pattern.compile("\\((sum)"));
     }
@@ -17,20 +17,20 @@ public class ExprSum extends Expression {
         super(Pattern.compile("\\((sum)"));
         myOperands = operands;
     }
-    
+
     @Override
     public RGBColor evaluate(double x, double y, double currentTime) {
         Double r = 0.0;
         Double g = 0.0;
         Double b = 0.0;
-        
+
         for (Expression e : myOperands) {
-            RGBColor RGBc = e.evaluate(x,y, currentTime);
+            RGBColor RGBc = e.evaluate(x, y, currentTime);
             r += RGBc.getRed();
             g += RGBc.getGreen();
             b += RGBc.getBlue();
-        }       
-        return new RGBColor(r,g,b);
+        }
+        return new RGBColor(r, g, b);
     }
 
     @Override

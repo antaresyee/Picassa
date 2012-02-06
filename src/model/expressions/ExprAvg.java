@@ -8,8 +8,8 @@ import model.Parser.ParserState;
 
 public class ExprAvg extends Expression {
 
-ArrayList<Expression> myOperands;
-    
+    ArrayList<Expression> myOperands;
+
     public ExprAvg() {
         super(Pattern.compile("\\((average)"));
     }
@@ -18,20 +18,21 @@ ArrayList<Expression> myOperands;
         super(Pattern.compile("\\((average)"));
         myOperands = operands;
     }
-    
+
     @Override
     public RGBColor evaluate(double x, double y, double currentTime) {
         Double r = 0.0;
         Double g = 0.0;
         Double b = 0.0;
-        
+
         for (Expression e : myOperands) {
-            RGBColor RGBc = e.evaluate(x,y, currentTime);
+            RGBColor RGBc = e.evaluate(x, y, currentTime);
             r += RGBc.getRed();
             g += RGBc.getGreen();
             b += RGBc.getBlue();
-        }       
-        return new RGBColor(r/myOperands.size(),g/myOperands.size(),b/myOperands.size());
+        }
+        return new RGBColor(r / myOperands.size(), g / myOperands.size(), b
+                / myOperands.size());
     }
 
     @Override

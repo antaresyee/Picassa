@@ -9,8 +9,10 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprLet extends Expression {
-    //let statement looks like: (let userCommandName userExpression myExpression)
-    public static final Pattern USER_COMMANDNAME_PATTERN = Pattern.compile("[a-zA-Z]+");
+    // let statement looks like: (let userCommandName userExpression
+    // myExpression)
+    public static final Pattern USER_COMMANDNAME_PATTERN = Pattern
+            .compile("[a-zA-Z]+");
 
     public ExprLet() {
         super(Pattern.compile("\\((let)"));
@@ -20,34 +22,36 @@ public class ExprLet extends Expression {
      * This method is a "refused bequest."
      */
     public RGBColor evaluate(double x, double y, double currentTime) {
-        throw new ParserException("Called evaluate on an ExprLet instance. Not allowed.");
+        throw new ParserException(
+                "Called evaluate on an ExprLet instance. Not allowed.");
     }
 
     public Expression parseExpression(ParserState ps) {
-        //parse "(let"
+        // parse "(let"
         ps.skipWhiteSpace();
         Matcher expMatcher = myRegexPattern.matcher(ps.getInput());
         expMatcher.find(ps.getCurrentPosition());
         ps.setPosition(expMatcher.end());
         ps.skipWhiteSpace();
-        
-        //parse userCommandName
+
+        // parse userCommandName
         expMatcher = USER_COMMANDNAME_PATTERN.matcher(ps.getInput());
         expMatcher.find(ps.getCurrentPosition());
-        String userCommandName = ps.getInput().substring(expMatcher.start(), expMatcher.end());
+        String userCommandName = ps.getInput().substring(expMatcher.start(),
+                expMatcher.end());
         ps.setPosition(expMatcher.end());
         ps.skipWhiteSpace();
-        
-        //parse tempOperand
+
+        // parse tempOperand
         Expression userExpression = Parser.parseInput(ps);
         ps.skipWhiteSpace();
-        
+
         ps.setExprTemp(new ExprTemp(userCommandName, userExpression));
-        
-        //parse myExpression
+
+        // parse myExpression
         Expression myExpression = Parser.parseInput(ps);
         ps.skipWhiteSpace();
-        
+
         if (ps.currentCharacter() == ')') {
             ps.setPosition(ps.getCurrentPosition() + 1);
             ps.removeExpr(userCommandName);
