@@ -9,13 +9,14 @@ import model.Parser.ParserState;
 public class ExprMinus extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((-)|\\((minus)");
 
     public ExprMinus() {
-        super(Pattern.compile("\\((-)|\\((minus)"));
+        super(myPattern);
     }
 
     public ExprMinus(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((-)|\\((minus)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

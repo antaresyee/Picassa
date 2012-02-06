@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprCos extends Expression {
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((cos)");
 
     public ExprCos() {
-        super(Pattern.compile("\\((cos)"));
+        super(myPattern);
     }
 
     public ExprCos(Expression operand1) {
-        super(Pattern.compile("\\((cos)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

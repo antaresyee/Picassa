@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprWrap extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((wrap)"); 
 
     public ExprWrap() {
-        super(Pattern.compile("\\((wrap)"));
+        super(myPattern);
     }
 
     public ExprWrap(Expression operand1) {
-        super(Pattern.compile("\\((wrap)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

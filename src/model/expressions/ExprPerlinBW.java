@@ -9,13 +9,14 @@ import model.util.PerlinNoise;
 public class ExprPerlinBW extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((perlinBW)");
 
     public ExprPerlinBW() {
-        super(Pattern.compile("\\((perlinBW)"));
+        super(myPattern);
     }
 
     public ExprPerlinBW(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((perlinBW)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

@@ -8,13 +8,14 @@ import model.Parser.ParserState;
 public class ExprMul extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((\\*)|\\((mul)");
 
     public ExprMul() {
-        super(Pattern.compile("\\((\\*)|\\((mul)"));
+        super(myPattern);
     }
 
     public ExprMul(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((\\*)|\\((mul)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

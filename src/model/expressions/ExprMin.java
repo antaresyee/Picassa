@@ -7,15 +7,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprMin extends Expression {
-
     ArrayList<Expression> myOperands;
+    static Pattern myPattern = Pattern.compile("\\((min)");
 
     public ExprMin() {
-        super(Pattern.compile("\\((min)"));
+        super(myPattern);
     }
 
     public ExprMin(ArrayList<Expression> operands) {
-        super(Pattern.compile("\\((min)"));
+        super(myPattern);
         myOperands = operands;
     }
 

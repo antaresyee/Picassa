@@ -7,15 +7,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprAvg extends Expression {
-
     ArrayList<Expression> myOperands;
+    static Pattern myPattern = Pattern.compile("\\((average)");
 
     public ExprAvg() {
-        super(Pattern.compile("\\((average)"));
+        super(myPattern);
     }
 
     public ExprAvg(ArrayList<Expression> operands) {
-        super(Pattern.compile("\\((average)"));
+        super(myPattern);
         myOperands = operands;
     }
 

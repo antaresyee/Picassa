@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprAbs extends Expression {
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((abs)");
 
     public ExprAbs() {
-        super(Pattern.compile("\\((abs)"));
+        super(myPattern);
     }
 
     public ExprAbs(Expression operand1) {
-        super(Pattern.compile("\\((abs)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

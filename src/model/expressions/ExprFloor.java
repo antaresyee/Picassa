@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprFloor extends Expression {
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((floor)");
 
     public ExprFloor() {
-        super(Pattern.compile("\\((floor)"));
+        super(myPattern);
     }
 
     public ExprFloor(Expression operand1) {
-        super(Pattern.compile("\\((floor)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

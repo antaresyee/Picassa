@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprSin extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((sin)");
 
     public ExprSin() {
-        super(Pattern.compile("\\((sin)"));
+        super(myPattern);
     }
 
     public ExprSin(Expression operand1) {
-        super(Pattern.compile("\\((sin)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

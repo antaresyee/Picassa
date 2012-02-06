@@ -8,13 +8,14 @@ import model.Parser.ParserState;
 public class ExprPlus extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((\\+)|\\((plus)");
 
     public ExprPlus() {
-        super(Pattern.compile("\\((\\+)|\\((plus)"));
+        super(myPattern);
     }
 
     public ExprPlus(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((\\+)|\\((plus)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

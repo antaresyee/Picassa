@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprAtan extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((atan)");
 
     public ExprAtan() {
-        super(Pattern.compile("\\((atan)"));
+        super(myPattern);
     }
 
     public ExprAtan(Expression operand1) {
-        super(Pattern.compile("\\((atan)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

@@ -9,13 +9,14 @@ public class ExprCol extends Expression {
     Expression myOperand1;
     Expression myOperand2;
     Expression myOperand3;
+    static Pattern myPattern = Pattern.compile("\\((color)");
 
     public ExprCol() {
-        super(Pattern.compile("\\((color)"));
+        super(myPattern);
     }
 
     public ExprCol(Expression operand1, Expression operand2, Expression operand3) {
-        super(Pattern.compile("\\((color)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
         myOperand3 = operand3;

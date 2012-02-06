@@ -8,13 +8,14 @@ import model.Parser.ParserState;
 
 public class ExprSum extends Expression {
     ArrayList<Expression> myOperands;
+    static Pattern myPattern = Pattern.compile("\\((sum)");
 
     public ExprSum() {
-        super(Pattern.compile("\\((sum)"));
+        super(myPattern);
     }
 
     public ExprSum(ArrayList<Expression> operands) {
-        super(Pattern.compile("\\((sum)"));
+        super(myPattern);
         myOperands = operands;
     }
 

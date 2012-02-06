@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprLog extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((log)");
 
     public ExprLog() {
-        super(Pattern.compile("\\((log)"));
+        super(myPattern);
     }
 
     public ExprLog(Expression operand1) {
-        super(Pattern.compile("\\((log)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

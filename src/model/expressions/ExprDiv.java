@@ -8,13 +8,14 @@ import model.Parser.ParserState;
 public class ExprDiv extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((/)|\\((div)");
 
     public ExprDiv() {
-        super(Pattern.compile("\\((/)|\\((div)"));
+        super(myPattern);
     }
 
     public ExprDiv(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((/)|\\((div)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

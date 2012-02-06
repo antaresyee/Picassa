@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprNum extends Expression {
     RGBColor myValue;
+    static Pattern myPattern = Pattern.compile("(\\-?[0-9]+(\\.[0-9]+)?)|(\\.[0-9]+)");
 
     public ExprNum() {
-        super(Pattern.compile("(\\-?[0-9]+(\\.[0-9]+)?)|(\\.[0-9]+)"));
+        super(myPattern);
     }
 
     public ExprNum(RGBColor gray) {
-        super(Pattern.compile("(\\-?[0-9]+(\\.[0-9]+)?)|(\\.[0-9]+)"));
+        super(myPattern);
         myValue = gray;
 
     }

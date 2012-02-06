@@ -13,9 +13,10 @@ public class ExprLet extends Expression {
     // myExpression)
     public static final Pattern USER_COMMANDNAME_PATTERN = Pattern
             .compile("[a-zA-Z]+");
+    static Pattern myPattern = Pattern.compile("\\((let)");
 
     public ExprLet() {
-        super(Pattern.compile("\\((let)"));
+        super(myPattern);
     }
 
     /**

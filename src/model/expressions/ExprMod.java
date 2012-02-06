@@ -8,13 +8,14 @@ import model.Parser.ParserState;
 public class ExprMod extends Expression {
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((%)|\\((mod)");
 
     public ExprMod() {
-        super(Pattern.compile("\\((%)|\\((mod)"));
+        super(myPattern);
     }
 
     public ExprMod(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((%)|\\((mod)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

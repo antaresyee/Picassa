@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprNeg extends Expression {
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((!)|\\((neg)");
 
     public ExprNeg() {
-        super(Pattern.compile("\\((!)|\\((neg)"));
+        super(myPattern);
     }
 
     public ExprNeg(Expression operand1) {
-        super(Pattern.compile("\\((!)|\\((neg)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

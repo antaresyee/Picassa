@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprClamp extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((clamp)");
 
     public ExprClamp() {
-        super(Pattern.compile("\\((clamp)"));
+        super(myPattern);
     }
 
     public ExprClamp(Expression operand1) {
-        super(Pattern.compile("\\((clamp)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

@@ -7,15 +7,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprMax extends Expression {
-
     ArrayList<Expression> myOperands;
-
+    static Pattern myPattern = Pattern.compile("\\((max)");
+    
     public ExprMax() {
-        super(Pattern.compile("\\((max)"));
+        super(myPattern);
     }
 
     public ExprMax(ArrayList<Expression> operands) {
-        super(Pattern.compile("\\((max)"));
+        super(myPattern);
         myOperands = operands;
     }
 

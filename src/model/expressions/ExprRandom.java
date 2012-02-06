@@ -6,9 +6,10 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprRandom extends Expression {
-
+    static Pattern myPattern = Pattern.compile("\\((random)");
+    
     public ExprRandom() {
-        super(Pattern.compile("\\((random)"));
+        super(myPattern);
     }
 
     public RGBColor evaluate(double x, double y, double currentTime) {

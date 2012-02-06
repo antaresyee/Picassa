@@ -7,13 +7,14 @@ import model.Parser.ParserState;
 
 public class ExprCeil extends Expression {
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((ceil)");
 
     public ExprCeil() {
-        super(Pattern.compile("\\((ceil)"));
+        super(myPattern);
     }
 
     public ExprCeil(Expression operand1) {
-        super(Pattern.compile("\\((ceil)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 

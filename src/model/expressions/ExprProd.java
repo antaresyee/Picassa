@@ -7,11 +7,11 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprProd extends Expression {
-
     ArrayList<Expression> myOperands;
+    static Pattern myPattern = Pattern.compile("\\((product)");
 
     public ExprProd() {
-        super(Pattern.compile("\\((product)"));
+        super(myPattern);
     }
 
     public ExprProd(ArrayList<Expression> operands) {

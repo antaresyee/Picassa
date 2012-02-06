@@ -6,9 +6,10 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprT extends Expression {
-
+    static Pattern myPattern = Pattern.compile("t");
+    
     public ExprT() {
-        super(Pattern.compile("t"));
+        super(myPattern);
     }
 
     public RGBColor evaluate(double x, double y, double currentTime) {

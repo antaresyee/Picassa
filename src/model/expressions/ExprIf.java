@@ -10,13 +10,14 @@ public class ExprIf extends Expression {
     Expression myOperand1;
     Expression myOperand2;
     Expression myOperand3;
+    static Pattern myPattern = Pattern.compile("\\((if)");
 
     public ExprIf() {
-        super(Pattern.compile("\\((if)"));
+        super(myPattern);
     }
 
     public ExprIf(Expression operand1, Expression operand2, Expression operand3) {
-        super(Pattern.compile("\\((if)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
         myOperand3 = operand3;

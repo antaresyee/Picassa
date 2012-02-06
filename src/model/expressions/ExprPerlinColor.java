@@ -7,16 +7,16 @@ import model.Parser.ParserState;
 import model.util.PerlinNoise;
 
 public class ExprPerlinColor extends Expression {
-
     Expression myOperand1;
     Expression myOperand2;
+    static Pattern myPattern = Pattern.compile("\\((perlinColor)");
 
     public ExprPerlinColor() {
-        super(Pattern.compile("\\((perlinColor)"));
+        super(myPattern);
     }
 
     public ExprPerlinColor(Expression operand1, Expression operand2) {
-        super(Pattern.compile("\\((perlinColor)"));
+        super(myPattern);
         myOperand1 = operand1;
         myOperand2 = operand2;
     }

@@ -6,15 +6,15 @@ import model.RGBColor;
 import model.Parser.ParserState;
 
 public class ExprRgbToYCrCb extends Expression {
-
     Expression myOperand1;
+    static Pattern myPattern = Pattern.compile("\\((rgbToYCrCb)");
 
     public ExprRgbToYCrCb() {
-        super(Pattern.compile("\\((rgbToYCrCb)"));
+        super(myPattern);
     }
 
     public ExprRgbToYCrCb(Expression operand1) {
-        super(Pattern.compile("\\((rgbToYCrCb)"));
+        super(myPattern);
         myOperand1 = operand1;
     }
 
